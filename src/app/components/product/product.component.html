@@ -1,34 +1,36 @@
-<div
-  class="py-4 px-6 border rounded flex item-center items-center flex-col mb-2 text-center"
->
-  <img [src]="product.image" [alt]="product.title" class="w-1/6 mb-2" />
-  <h2 class="mb-2 text-md">{{ product.title }}</h2>
-  <p>
-    Price:
-    <span class="text-rose-700 font-medium">{{
-      product.price | currency
-    }}</span>
-  </p>
-
-  <button
-    class="border py-2 px-5 my-5 rounded duration-300"
-    (click)="showDetails()"
-    [ngClass]="
-      details
-        ? 'bg-rose-500 hover:bg-rose-400'
-        : 'bg-yellow-400 hover:bg-yellow-300'
-    "
-  >
-    {{ details ? "Hide" : "Show" }} Details
-  </button>
-
-  <div *ngIf="details">
-    <p>{{ product.description }}</p>
+<div class="py-4 px-6 flex items-center justify-between flex-col text-center">
+  <div class="my-5">
+    <img [src]="product.image" [alt]="product.title" class="mb-2 h-28" />
+  </div>
+  <div class="">
+    <h2 class="mb-2 text-md">{{ product.title }}</h2>
     <p>
-      Rate:
-      <span [ngStyle]="{ fontWeight: '500' }">{{
-        product.rating.rate | number
+      Price:
+      <span class="text-rose-700 font-medium">{{
+        product.price | currency
       }}</span>
     </p>
+
+    <button
+      class="border py-2 px-5 my-5 rounded duration-300"
+      (click)="showDetails()"
+      [ngClass]="
+        details
+          ? 'bg-rose-500 hover:bg-rose-400'
+          : 'bg-yellow-400 hover:bg-yellow-300'
+      "
+    >
+      {{ details ? "Hide" : "Show" }} Details
+    </button>
+
+    <div *ngIf="details">
+      <p>{{ product.description }}</p>
+      <p>
+        Rate:
+        <span [ngStyle]="{ fontWeight: '500' }">{{
+          product.rating.rate | number
+        }}</span>
+      </p>
+    </div>
   </div>
 </div>

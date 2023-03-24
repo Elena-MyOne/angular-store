@@ -1,0 +1,8 @@
+<p *ngIf="loading" class="text-center text-lg col-span-3 my-5 text-yellow-600">
+  Loading...
+</p>
+<app-product
+  *ngFor="let prod of products$ | async"
+  [product]="prod"
+  class="border rounded"
+></app-product>
