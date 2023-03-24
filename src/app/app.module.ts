@@ -9,6 +9,7 @@ import { ProductComponent } from './components/product/product.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductsComponent } from './components/products/products.component';
+import { GlobalErrorComponent } from './components/global-error/global-error.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProductsComponent } from './components/products/products.component';
     ProductComponent,
     FooterComponent,
     ProductsComponent,
+    GlobalErrorComponent,
     
   ],
   imports: [

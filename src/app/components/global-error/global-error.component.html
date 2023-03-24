@@ -1,0 +1,15 @@
+<div
+  class="text-center text-lg my-5 text-red-400 font-medium"
+  *ngIf="errorService.error$ | async as error"
+>
+  <p>Something goes wrong, please try again later</p>
+
+  <button
+    class="bg-yellow-400 text-black font-normal border py-2 px-5 my-5 rounded duration-300 hover:bg-yellow-300"
+    (click)="errorService.clear()"
+  >
+    go to Home page
+  </button>
+
+  <!-- <p>{{ error }}</p> -->
+</div>
