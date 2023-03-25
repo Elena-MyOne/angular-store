@@ -2,12 +2,21 @@
   Loading...
 </p>
 
-<input
-  type="text"
-  class="my-2 border py-2 px-4 w-full focus:border-rose-300 focus:outline-none rounded"
-  placeholder="Filter products..."
-  [(ngModel)]="term"
-/>
+<div class="grid grid-rows-1 grid-flow-col gap-4">
+  <input
+    type="text"
+    class="my-2 border py-2 px-4 focus:border-rose-300 focus:outline-none rounded"
+    placeholder="Filter products..."
+    [(ngModel)]="term"
+  />
+
+  <button
+    class="my-2 border py-2 px-4 rounded duration-300 bg-yellow-400 hover:bg-yellow-300 w-44"
+    (click)="modalService.open()"
+  >
+    Create New Product
+  </button>
+</div>
 
 <app-global-error class="col-span-3"></app-global-error>
 
@@ -18,3 +27,7 @@
     class="border rounded hover:border-rose-200 duration-300"
   ></app-product>
 </div>
+
+<app-modal title="Create new product" *ngIf="modalService.isVisible$ | async">
+  <app-create-product></app-create-product>
+</app-modal>

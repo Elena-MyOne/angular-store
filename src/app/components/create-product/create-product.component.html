@@ -1,0 +1,31 @@
+<form
+  class="flex justify-items-center items-center flex-col"
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+>
+  <input
+    type="text"
+    class="my-2 border py-2 px-4 w-full focus:border-rose-300 focus:outline-none rounded"
+    placeholder="Product name"
+    formControlName="title"
+    appFocus
+  />
+
+  <p
+    class="text-red-500 text-center mb-2"
+    *ngIf="
+      title.errors &&
+      (title.errors.required || title.errors.minlength) &&
+      title.touched
+    "
+  >
+    The field is required and should includes at list 4 symbols
+  </p>
+
+  <button
+    type="submit"
+    class="border py-2 px-5 my-5 rounded duration-300 bg-yellow-400 hover:bg-yellow-300 text-center"
+  >
+    Create
+  </button>
+</form>
