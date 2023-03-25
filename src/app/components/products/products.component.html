@@ -1,9 +1,20 @@
 <p *ngIf="loading" class="text-center text-lg col-span-3 my-5 text-yellow-600">
   Loading...
 </p>
+
+<input
+  type="text"
+  class="my-2 border py-2 px-4 w-full focus:border-rose-300 focus:outline-none rounded"
+  placeholder="Filter products..."
+  [(ngModel)]="term"
+/>
+
 <app-global-error class="col-span-3"></app-global-error>
-<app-product
-  *ngFor="let prod of products$ | async"
-  [product]="prod"
-  class="border rounded"
-></app-product>
+
+<div class="grid grid-cols-3 gap-4 mt-5" *ngIf="products$ | async as products">
+  <app-product
+    *ngFor="let prod of products | filterProducts : term"
+    [product]="prod"
+    class="border rounded hover:border-rose-200 duration-300"
+  ></app-product>
+</div>

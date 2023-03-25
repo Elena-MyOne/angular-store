@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
 
   // products: ProductData[] = [];
   loading = false;
+  term = ''
   products$: Observable<ProductData[]>
 
   constructor(private productsService: ProductsService) {}
